@@ -1,6 +1,12 @@
 import Image from "next/image";
+
 import styles from "./page.module.css";
+import ProductList from "@/app/_components/product-list/product-list";
 
 export default function Home() {
-  return <h1>Hello world!</h1>;
+  return (
+    <>
+      <ProductList />
+    </>
+  );
 }
