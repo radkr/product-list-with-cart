@@ -16,11 +16,11 @@ export default function ProductItem({ product }) {
           srcSet={`/images/${product.image.mobile}`}
         />
         <source
-          media="(max-width: 768px)"
+          media="(max-width: 877px)"
           srcSet={`/images/${product.image.tablet}`}
         />
         <source
-          media="(min-width: 769px)"
+          media="(min-width: 878px)"
           srcSet={`/images/${product.image.desktop}`}
         />
         <img

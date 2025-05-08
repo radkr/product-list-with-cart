@@ -1,6 +1,7 @@
 :root {
-  --tablet-min-width: 767px;
-  --desktop-min-width: 1024px;
+  --max-width-card-mobile: 327px;
+  --min-width-card: 213px;
+  --max-width-card: 250px;
 
   /*Colors: */
   --color-red: hsl(14, 86%, 42%);
@@ -65,5 +66,30 @@ body {
 @media (min-width: 530px) {
   body {
     padding: var(--space-500);
+  }
+}
+
+/* Tablet 2 column layout: */
+/* 2 * tablet-padding + 2 * min-width-card + 1 * column-gap */
+/* 2 * 40px + 2 * 213px + 1 * 24px = 530px*/
+@media (min-width: 530px) {
+  body {
+    padding: var(--space-500);
+  }
+}
+
+/* Tablet 3 column layout: */
+/* 2 * tablet-padding + 3 * min-width-card + 2 * column-gap */
+/* 2 * 40px + 3 * 213px + 2 * 24px = 530px*/
+@media (min-width: 767px) {
+  /*No change*/
+}
+
+/* Desktop 3 column layout: */
+/* 2 * desktop-padding + 3 * min-width-card + 2 * column-gap */
+/* 2 * 40px + 3 * 250px + 2 * 24px = 530px*/
+@media (min-width: 878px) {
+  body {
+    padding: var(--space-1100) var(--space-500);
   }
 }

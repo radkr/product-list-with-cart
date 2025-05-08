@@ -1,13 +1,29 @@
 .products {
+  max-width: var(--max-width-card-mobile);
   margin: 0 auto;
 }
 
-@media (prefers-color-scheme: dark) {
+/* Tablet 2 column layout: */
+/* 2 * tablet-padding + 2 * min-width-card + 1 * column-gap */
+/* 2 * 40px + 2 * 213px + 1 * 24px = 530px*/
+@media (min-width: 530px) {
+  .products {
+    max-width: calc(2 * var(--max-width-card) + 1 * var(--space-300));
+  }
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
+/* Tablet 3 column layout: */
+/* 2 * tablet-padding + 3 * min-width-card + 2 * column-gap */
+/* 2 * 40px + 3 * 213px + 2 * 24px = 530px*/
+@media (min-width: 767px) {
+  .products {
+    max-width: calc(3 * var(--max-width-card) + 2 * var(--space-300));
+  }
 }
 
-@media (max-width: 600px) {
+/* Desktop 3 column layout: */
+/* 2 * desktop-padding + 3 * min-width-card + 2 * column-gap */
+/* 2 * 40px + 3 * 250px + 2 * 24px = 530px*/
+@media (min-width: 878px) {
+  /*No change*/
 }
