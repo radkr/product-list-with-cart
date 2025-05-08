@@ -13,18 +13,18 @@ export default function ProductItem({ product }) {
       <picture>
         <source
           media="(max-width: 529px)"
-          srcSet={`/images/${product.image.mobile}`}
+          srcSet={`${process.env.VERCEL_BLOB_URI}/images/${product.image.mobile}`}
         />
         <source
           media="(max-width: 877px)"
-          srcSet={`/images/${product.image.tablet}`}
+          srcSet={`${process.env.VERCEL_BLOB_URI}/images/${product.image.tablet}`}
         />
         <source
           media="(min-width: 878px)"
-          srcSet={`/images/${product.image.desktop}`}
+          srcSet={`${process.env.VERCEL_BLOB_URI}/images/${product.image.desktop}`}
         />
         <img
-          src={`/images/${product.image.desktop}`}
+          src={`${process.env.VERCEL_BLOB_URI}/images/${product.image.desktop}`}
           alt={`Photo about ${product.name}`}
           className={styles.photo}
         />

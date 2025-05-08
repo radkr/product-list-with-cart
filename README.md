@@ -15,6 +15,7 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
     - [Iteration 1](#iteration-1)
     - [Iteration 2](#iteration-2)
     - [Iteration 3](#iteration-3)
+    - [Iteration 4](#iteration-4)
   - [What I learned](#what-i-learned)
     - [Next.js Server Component rendering](#nextjs-server-component-rendering)
     - [MongoDB connection](#mongodb-connection)
@@ -29,7 +30,9 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
 ## Links
 
 - Solution URL: [TODO - On Frontend Mentor](#)
-- Live Site URL: [TODO - On Github Pages](#)
+- Live Site URL: [On Vercel](https://product-list-with-cart-ochre.vercel.app/)
+  - Product list on MongoDB Atlas server
+  - Product pictures on Vercel Store server
 
 # My process
 
@@ -63,6 +66,10 @@ See the product list on my tablet and desktop devices.
 ### Iteration 3
 
 See the product list properly when I change the default browser font size setting.
+
+### Iteration 4
+
+Allow me (administrator) to change the pictures of the products after the application has been deployed.
 
 ## What I learned
 

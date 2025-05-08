@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import styles from "./page.module.css";
 import ProductList from "@/app/_components/product-list/product-list";
 
