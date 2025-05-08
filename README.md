@@ -13,6 +13,8 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
   - [Tested with](#tested-with)
   - [Iterations](#iterations)
     - [Iteration 1](#iteration-1)
+    - [Iteration 2](#iteration-2)
+    - [Iteration 3](#iteration-3)
   - [What I learned](#what-i-learned)
     - [Next.js Server Component rendering](#nextjs-server-component-rendering)
     - [MongoDB connection](#mongodb-connection)
@@ -57,6 +59,10 @@ See the product list on my mobile device.
 ### Iteration 2
 
 See the product list on my tablet and desktop devices.
+
+### Iteration 3
+
+See the product list properly when I change the default browser font size setting.
 
 ## What I learned
 
