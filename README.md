@@ -27,7 +27,7 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
 ## Links
 
 - Solution URL: [TODO - On Frontend Mentor](#)
-- Live Site URL: [TODO - On Github Pages](https://radkr.github.io/browser-extensions-manager-ui/)
+- Live Site URL: [TODO - On Github Pages](#)
 
 # My process
 

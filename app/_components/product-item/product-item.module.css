@@ -1,0 +1,32 @@
+.photo {
+  width: 100%;
+  height: auto;
+  border-radius: var(--space-100);
+  margin-bottom: var(--space-200);
+}
+
+.category {
+  font-family: var(--font-red-hat-sans);
+  font-size: var(--text-font-size-4);
+  font-weight: var(--text-font-weight-4);
+  line-height: var(--text-line-height-4);
+  letter-spacing: var(--text-letter-spacing-4);
+  color: var(--color-rose-500);
+}
+
+.name {
+  font-family: var(--font-red-hat-sans);
+  font-size: var(--text-font-size-3);
+  font-weight: var(--text-font-weight-3);
+  line-height: var(--text-line-height-3);
+  letter-spacing: var(--text-letter-spacing-3);
+}
+
+.price {
+  font-family: var(--font-red-hat-sans);
+  font-size: var(--text-font-size-3);
+  font-weight: var(--text-font-weight-3);
+  line-height: var(--text-line-height-3);
+  letter-spacing: var(--text-letter-spacing-3);
+  color: var(--color-red);
+}

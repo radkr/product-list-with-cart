@@ -5,8 +5,8 @@ import ProductList from "@/app/_components/product-list/product-list";
 
 export default function Home() {
   return (
-    <>
+    <main>
       <ProductList />
-    </>
+    </main>
   );
 }
