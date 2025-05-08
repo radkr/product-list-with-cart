@@ -21,6 +21,8 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
     - [MongoDB connection](#mongodb-connection)
     - [MongoDB model](#mongodb-model)
     - [MongoDB URI](#mongodb-uri)
+    - [Async react component unit testing](#async-react-component-unit-testing)
+    - [Mocking user modules](#mocking-user-modules)
   - [Useful resources](#useful-resources)
 
 # Overview
@@ -131,6 +133,51 @@ const ProductSchema = new mongoose.Schema(
   { collection: "products" } // explicit
 );
 mongoose.model("Product", ProductSchema);
+```
+
+### Async react component unit testing
+
+I found out that the async react components can be unit tested with the react testing library by calling render function in the folloing way:
+
+```javascript
+render(await ProductList());
+```
+
+### Mocking user modules
+
+Manual mocks are defined by writing a module in a `__mocks__/` subdirectory immediately adjacent to the module. For example, to mock a module called `user` in the `models` directory, create a file called `user.js` and put it in the `models/__mocks__` directory. [Jest - Manual Mocks](https://jestjs.io/docs/manual-mocks)
+
+Because I could not find any way automatically mocking my modules (`database.js`, `product.js`) so far, I have written manual mocks.
+
+For Mongoose Product model in `product.js` I used the following mock:
+
+```javascript
+const Product = {
+  find: jest.fn(() => Promise.resolve([])),
+};
+
+export default Product;
+```
+
+Since the MongoDB database adds automatic `_id` parameter and Mongoose populates the model with it as the `id` property, the mock should reflect this behavio as well:
+
+```javascript
+const products = [
+  {
+    id: 0,
+    image: {
+      thumbnail: "./assets/images/image-waffle-thumbnail.jpg",
+      mobile: "./assets/images/image-waffle-mobile.jpg",
+      tablet: "./assets/images/image-waffle-tablet.jpg",
+      desktop: "./assets/images/image-waffle-desktop.jpg",
+    },
+    name: "Waffle with Berries",
+    category: "Waffle",
+    price: 6.5,
+  },
+];
+
+Product.find.mockResolvedValue(products);
 ```
 
 ## Useful resources
