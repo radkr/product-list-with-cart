@@ -54,6 +54,10 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
 
 See the product list on my mobile device.
 
+### Iteration 2
+
+See the product list on my tablet and desktop devices.
+
 ## What I learned
 
 ### Next.js Server Component rendering
@@ -118,4 +122,10 @@ mongoose.model("Product", ProductSchema);
 
 ## Useful resources
 
-TODO
+### Responsive Images
+
+- [Using responsive images in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images)
+- [Use density descriptors](https://web.dev/articles/codelab-density-descriptors)
+- [<img>: The Image Embed element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img)
+- [Image Optimization](https://nextjs.org/docs/app/building-your-application/optimizing/images)
+- [Image](https://nextjs.org/docs/pages/api-reference/components/image#responsive-images)

@@ -5,7 +5,7 @@ import ProductList from "@/app/_components/product-list/product-list";
 
 export default function Home() {
   return (
-    <main>
+    <main className={styles.products}>
       <ProductList />
     </main>
   );

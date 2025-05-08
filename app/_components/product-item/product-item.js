@@ -10,14 +10,25 @@ export default function ProductItem({ product }) {
 
   return (
     <li className={styles.card}>
-      <Image
-        src={imageSrc}
-        alt={imageAlt}
-        width={imageWidth}
-        height={imageHeight}
-        layout="responsive"
-        className={styles.photo}
-      />
+      <picture>
+        <source
+          media="(max-width: 529px)"
+          srcSet={`/images/${product.image.mobile}`}
+        />
+        <source
+          media="(max-width: 768px)"
+          srcSet={`/images/${product.image.tablet}`}
+        />
+        <source
+          media="(min-width: 769px)"
+          srcSet={`/images/${product.image.desktop}`}
+        />
+        <img
+          src={`/images/${product.image.desktop}`}
+          alt={`Photo about ${product.name}`}
+          className={styles.photo}
+        />
+      </picture>
       <h2 className={styles.category}>{product.category}</h2>
       <p className={styles.name}>{product.name}</p>
       <p className={styles.price}>{`$${product.price}`}</p>

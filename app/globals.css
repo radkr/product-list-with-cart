@@ -1,4 +1,7 @@
 :root {
+  --tablet-min-width: 767px;
+  --desktop-min-width: 1024px;
+
   /*Colors: */
   --color-red: hsl(14, 86%, 42%);
   --color-green: hsl(159, 69%, 38%);
@@ -47,9 +50,6 @@
   --space-50: 4px;
 }
 
-@media (prefers-color-scheme: dark) {
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -60,4 +60,10 @@ body {
   font-family: var(--font-red-hat-sans);
   background-color: var(--color-rose-50);
   padding: var(--space-300);
+}
+
+@media (min-width: 530px) {
+  body {
+    padding: var(--space-500);
+  }
 }

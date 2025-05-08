@@ -1,8 +1,8 @@
 .photo {
-  width: 100%;
-  height: auto;
   border-radius: var(--space-100);
   margin-bottom: var(--space-200);
+  width: 100%;
+  height: auto;
 }
 
 .category {
