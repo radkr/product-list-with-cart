@@ -189,3 +189,12 @@ Product.find.mockResolvedValue(products);
 - [<img>: The Image Embed element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img)
 - [Image Optimization](https://nextjs.org/docs/app/building-your-application/optimizing/images)
 - [Image](https://nextjs.org/docs/pages/api-reference/components/image#responsive-images)
+
+### Testing
+
+- [Jest - Manual Mocks](https://jestjs.io/docs/manual-mocks)
+
+### Server Side Rendering
+
+- [Next.js - Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components)
+- [Next.js - Incremental Static Regeneration (ISR)](https://nextjs.org/docs/app/building-your-application/data-fetching/incremental-static-regeneration)
