@@ -16,11 +16,11 @@ export default function ProductItem({ product }) {
           srcSet={`${process.env.VERCEL_BLOB_URI}/images/${product.image.mobile}`}
         />
         <source
-          media="(max-width: 877px)"
+          media="(max-width: 1252px)"
           srcSet={`${process.env.VERCEL_BLOB_URI}/images/${product.image.tablet}`}
         />
         <source
-          media="(min-width: 878px)"
+          media="(min-width: 1253px)"
           srcSet={`${process.env.VERCEL_BLOB_URI}/images/${product.image.desktop}`}
         />
         <img

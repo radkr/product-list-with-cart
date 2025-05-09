@@ -16,6 +16,8 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
     - [Iteration 2](#iteration-2)
     - [Iteration 3](#iteration-3)
     - [Iteration 4](#iteration-4)
+    - [Iteration 5](#iteration-5)
+    - [Iteration 6](#iteration-6)
   - [What I learned](#what-i-learned)
     - [Next.js Server Component rendering](#nextjs-server-component-rendering)
     - [MongoDB connection](#mongodb-connection)
@@ -77,9 +79,13 @@ See the product list properly when I change the default browser font size settin
 
 Allow me (administrator) to change the pictures of the products after the application has been deployed.
 
-### Iteration 4
+### Iteration 5
 
 Allow me (administrator) to add or remove products after the application has been deployed.
+
+### Iteration 6
+
+See the empty cart.
 
 ## What I learned
 

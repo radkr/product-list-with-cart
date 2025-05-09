@@ -2,6 +2,8 @@
   --max-width-card-mobile: 20.4375rem;
   --min-width-card: 13.3125rem;
   --max-width-card: 15.625rem;
+  --min-width-product-cart: 23.4375rem;
+  --max-width-product-cart-dektop: 24rem;
 
   /*Colors: */
   --color-red: hsl(14, 86%, 42%);
@@ -82,7 +84,17 @@ body {
 /* Desktop 3 column layout: */
 /* 2 * desktop-padding + 3 * min-width-card + 2 * column-gap */
 /* 2 * 40px + 3 * 250px + 2 * 24px = 530px*/
-@media (min-width: 54.875rem) {
+/*@media (min-width: 54.875rem) {
+  body {
+    padding: var(--space-1100) var(--space-500);
+  }
+}*/
+
+/* Desktop 3 + 1 column layout: */
+/* 2 * desktop-padding + 3 * min-width-card + 2 * column-gap + 
+page-column-gap + min-width-product-cart*/
+/* 2 * 40px + 3 * 250px + 2 * 24px + 32px + 375px = 1253px*/
+@media (min-width: 78.3125rem) {
   body {
     padding: var(--space-1100) var(--space-500);
   }

@@ -1,0 +1,34 @@
+.cart {
+  background-color: white;
+  padding: var(--space-300);
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--space-300);
+}
+
+.quantity {
+  font-family: var(--font-red-hat-sans);
+  font-size: var(--text-font-size-2);
+  font-weight: var(--text-font-weight-2);
+  line-height: var(--text-line-height-2);
+  letter-spacing: var(--text-letter-spacing-2);
+  color: var(--color-red);
+  align-self: start;
+}
+
+.emptyCart {
+  width: 8rem;
+  height: 8rem;
+  align-self: center;
+}
+
+.info {
+  font-family: var(--font-red-hat-sans);
+  font-size: var(--text-font-size-4-bold);
+  font-weight: var(--text-font-weight-4-bold);
+  line-height: var(--text-line-height-4-bold);
+  letter-spacing: var(--text-letter-spacing-4-bold);
+  color: var(--color-rose-500);
+  align-self: center;
+}
