@@ -23,6 +23,7 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
     - [MongoDB URI](#mongodb-uri)
     - [Async react component unit testing](#async-react-component-unit-testing)
     - [Mocking user modules](#mocking-user-modules)
+    - [Vercel deployment](#vercel-deployment)
   - [Useful resources](#useful-resources)
 
 # Overview
@@ -44,7 +45,10 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
 - CSS custom properties
 - Mobile-first workflow
 - Responsive design
-- Next.js + React.js
+- Next.js + React.js (async react server component)
+- SEO (static site generation, incremental static regeneration)
+- NoSQl with ODM (MongoDB Atlas + Mongoose)
+- Blob Store (Vercel Blob)
 
 ## Improved with
 
@@ -72,6 +76,10 @@ See the product list properly when I change the default browser font size settin
 ### Iteration 4
 
 Allow me (administrator) to change the pictures of the products after the application has been deployed.
+
+### Iteration 4
+
+Allow me (administrator) to add or remove products after the application has been deployed.
 
 ## What I learned
 
@@ -179,6 +187,10 @@ const products = [
 
 Product.find.mockResolvedValue(products);
 ```
+
+### Vercel deployment
+
+Vercel generates a preview of the last commited page that allows me to test the application in the host environment before releasing it (merging it into the main branch).
 
 ## Useful resources
 
