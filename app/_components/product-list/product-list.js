@@ -3,8 +3,6 @@ import dbConnect from "@/app/_lib/database";
 import Product from "@/app/_models/product";
 import ProductItem from "@/app/_components/product-item/product-item";
 
-export const revalidate = 60;
-
 export default async function ProductList() {
   await dbConnect();
   const products = await Product.find();
