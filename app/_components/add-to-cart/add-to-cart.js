@@ -9,7 +9,8 @@ import { CartContext } from "@/app/_utils/cart-provider";
 
 export default function AddToCart({ product, children }) {
   const cart = use(CartContext);
-  const isInCart = cart.isInCart(product);
+  const quantity = cart.getQuantity(product);
+  const isInCart = 0 < quantity;
 
   function addToCart() {
     cart.add({ ...product });

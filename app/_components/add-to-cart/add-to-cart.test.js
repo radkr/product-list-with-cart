@@ -8,9 +8,18 @@ import { products } from "@/app/_test/test-utils";
 
 jest.mock("@/app/_models/product");
 
+const emptyCartValue = {
+  getQuantity: () => 0,
+  add: jest.fn(),
+};
+
 describe(AddToCart, () => {
   it("renders the 'Add to Cart' button", () => {
-    render(<AddToCart product={products[0]} />);
+    render(
+      <CartContext value={emptyCartValue}>
+        <AddToCart product={products[0]} />
+      </CartContext>
+    );
     const button = screen.getByLabelText(`Add ${products[0].name} to the cart`);
     const text = within(button).getByText(/add to cart/i);
     expect(text).toBeInTheDocument();
@@ -19,21 +28,14 @@ describe(AddToCart, () => {
   });
 
   it("calls add() when the user clicks the 'Add to Cart' button", async () => {
-    const cartValue = {
-      products: [],
-      total: 0,
-      isInCart: () => {},
-      add: jest.fn(),
-    };
-
     render(
-      <CartContext value={cartValue}>
+      <CartContext value={emptyCartValue}>
         <AddToCart product={products[0]} />
       </CartContext>
     );
     const button = screen.getByLabelText(`Add ${products[0].name} to the cart`);
     await userEvent.click(button);
-    expect(cartValue.add).toHaveBeenCalledTimes(1);
-    expect(cartValue.add.mock.calls[0][0].name).toBe(products[0].name);
+    expect(emptyCartValue.add).toHaveBeenCalledTimes(1);
+    expect(emptyCartValue.add.mock.calls[0][0].name).toBe(products[0].name);
   });
 });

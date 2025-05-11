@@ -5,7 +5,7 @@ import { createContext, useState } from "react";
 export const CartContext = createContext({
   products: [],
   total: 0,
-  isInCart: () => {},
+  getQuantity: () => {},
   add: () => {},
   remove: () => {},
 });
@@ -16,10 +16,12 @@ export default function CartProvider({ children }) {
     return previousValue + item.quantity * item.product.price;
   }, 0);
 
-  function isInCart(product) {
-    return !!products.find((item) => {
-      return item.product.id == product.id;
-    });
+  function getQuantity(product) {
+    return (
+      products.find((item) => {
+        return item.product.id == product.id;
+      })?.quantity || 0
+    );
   }
 
   function add(product) {
@@ -52,7 +54,7 @@ export default function CartProvider({ children }) {
   const cartValue = {
     products: products,
     total: total,
-    isInCart: isInCart,
+    getQuantity: getQuantity,
     add: add,
     remove: remove,
   };
