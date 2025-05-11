@@ -7,6 +7,7 @@ export const CartContext = createContext({
   total: 0,
   isInCart: () => {},
   add: () => {},
+  remove: () => {},
 });
 
 export default function CartProvider({ children }) {
@@ -39,11 +40,21 @@ export default function CartProvider({ children }) {
     });
   }
 
+  function remove(product) {
+    setProducts((previous) => {
+      const current = previous.filter((item) => {
+        return !(item.product.id === product.id);
+      });
+      return current;
+    });
+  }
+
   const cartValue = {
     products: products,
     total: total,
     isInCart: isInCart,
     add: add,
+    remove: remove,
   };
 
   return <CartContext value={cartValue}>{children}</CartContext>;

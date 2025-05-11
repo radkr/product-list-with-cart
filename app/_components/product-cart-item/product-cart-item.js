@@ -1,6 +1,15 @@
+"use client";
+
+import Image from "next/image";
+import { use } from "react";
+
 import styles from "./product-cart-item.module.css";
+import removeIcon from "@/public/images/icon-remove-item.svg";
+import { CartContext } from "@/app/_utils/cart-provider";
 
 export default function ProductCartItem({ item, last }) {
+  const cart = use(CartContext);
+
   return (
     <>
       <div className={styles.item}>
@@ -23,6 +32,15 @@ export default function ProductCartItem({ item, last }) {
             >{`$${item.quantity * item.product.price}`}</p>
           </div>
         </div>
+        <button
+          className={styles.remove}
+          aria-label={`Remove ${item.product.name} from the cart`}
+          onClick={() => {
+            cart.remove(item.product);
+          }}
+        >
+          <Image src={removeIcon} alt="" aria-hidden />
+        </button>
       </div>
       {!last ? <hr className={styles.rule} /> : null}
     </>

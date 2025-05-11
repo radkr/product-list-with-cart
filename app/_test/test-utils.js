@@ -34,10 +34,23 @@ export const items = [
 ];
 
 export async function addToCart(productName) {
-  const addToCart = screen.getByLabelText(new RegExp(productName, "i"), {
-    selector: "button",
-  });
+  const addToCart = screen.getByLabelText(
+    new RegExp(`Add ${productName}`, "i"),
+    {
+      selector: "button",
+    }
+  );
   await userEvent.click(addToCart);
+}
+
+export async function removeFromCart(productName) {
+  const removeFromCart = screen.getByLabelText(
+    new RegExp(`Remove ${productName}`, "i"),
+    {
+      selector: "button",
+    }
+  );
+  await userEvent.click(removeFromCart);
 }
 
 export function getCartQuantity(quantity) {

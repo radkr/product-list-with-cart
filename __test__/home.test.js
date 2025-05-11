@@ -1,9 +1,14 @@
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { within, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import Product from "@/app/_models/product";
-import { addToCart, getCartQuantity, products } from "@/app/_test/test-utils";
+import {
+  addToCart,
+  getCartQuantity,
+  products,
+  removeFromCart,
+} from "@/app/_test/test-utils";
 
 jest.mock("@/app/_lib/database");
 jest.mock("@/app/_models/product");
@@ -85,5 +90,33 @@ describe("Home", () => {
     expect(total).toHaveTextContent(
       `$${products[0].price + products[1].price}`
     );
+  });
+
+  it("shows empty cart after removing the only product in the cart", async () => {
+    //Arrange
+    const { default: Home } = await import("@/app/page");
+    render(<Home />);
+    //Act
+    await addToCart(products[0].name);
+    await removeFromCart(products[0].name);
+    const quantity = getCartQuantity();
+    //Assert
+    expect(quantity).toBe(0);
+  });
+
+  it("shows the only proper item after removing 1 of the 2 products in the cart", async () => {
+    //Arrange
+    const { default: Home } = await import("@/app/page");
+    render(<Home />);
+    //Act
+    await addToCart(products[0].name);
+    await addToCart(products[1].name);
+    await removeFromCart(products[0].name);
+    const quantity = getCartQuantity();
+    const cart = screen.getByTestId("product-cart");
+    const item = within(cart).getByText(products[1].name);
+    //Assert
+    expect(quantity).toBe(1);
+    expect(item).toBeInTheDocument();
   });
 });

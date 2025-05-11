@@ -19,6 +19,7 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
     - [Iteration 5](#iteration-5)
     - [Iteration 6](#iteration-6)
     - [Iteration 7](#iteration-7)
+    - [Iteration 8](#iteration-8)
   - [What I learned](#what-i-learned)
     - [Next.js Server Component rendering](#nextjs-server-component-rendering)
     - [MongoDB connection](#mongodb-connection)
@@ -92,6 +93,10 @@ See the empty cart.
 ### Iteration 7
 
 Add product to the cart.
+
+### Iteration 8
+
+Remove product from the cart.
 
 ## What I learned
 
