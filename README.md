@@ -18,12 +18,14 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
     - [Iteration 4](#iteration-4)
     - [Iteration 5](#iteration-5)
     - [Iteration 6](#iteration-6)
+    - [Iteration 7](#iteration-7)
   - [What I learned](#what-i-learned)
     - [Next.js Server Component rendering](#nextjs-server-component-rendering)
     - [MongoDB connection](#mongodb-connection)
     - [MongoDB model](#mongodb-model)
     - [MongoDB URI](#mongodb-uri)
     - [Async react component unit testing](#async-react-component-unit-testing)
+    - [Async react component integration testing](#async-react-component-integration-testing)
     - [Mocking user modules](#mocking-user-modules)
     - [Vercel deployment](#vercel-deployment)
   - [Useful resources](#useful-resources)
@@ -86,6 +88,10 @@ Allow me (administrator) to add or remove products after the application has bee
 ### Iteration 6
 
 See the empty cart.
+
+### Iteration 7
+
+Add product to the cart.
 
 ## What I learned
 
@@ -151,10 +157,53 @@ mongoose.model("Product", ProductSchema);
 
 ### Async react component unit testing
 
-I found out that the async react components can be unit tested with the react testing library by calling render function in the folloing way:
+The react testing library does not support async react components yet. I found, however, that they can be unit tested anyway with the workaround of calling render function in the following way:
 
 ```javascript
 render(await ProductList());
+```
+
+(See [React Testing Library issue - Support for React Server Components #1209](https://github.com/testing-library/react-testing-library/issues/1209))
+
+### Async react component integration testing
+
+Unfortunatelly, the workaround described in the [Async react component unit testing](#async-react-component-unit-testing) section does not work for react components that has async react server components as a child. For my exact case I found an other solution than [sroebert's one](https://gist.github.com/sroebert/a04ca6e0232a4a60bc50d7f164f101f6) referenced in the [React Testing Library issue ticket](https://github.com/testing-library/react-testing-library/issues/1209).
+
+I do the same trick with the `ProductList` as before but for now I have to mock the original component with the resolved one.
+
+```javascript
+beforeAll(async () => {
+  //...
+  const { default: AsyncProductList } = await import(
+    "@/app/_components/product-list/product-list"
+  );
+  const SyncProductList = await AsyncProductList();
+
+  jest.doMock("@/app/_components/product-list/product-list", () => ({
+    __esModule: true,
+    default: () => {
+      return SyncProductList;
+    },
+  }));
+});
+
+afterAll(() => {
+  // Clean up the mock afterwards
+  jest.resetModules();
+});
+```
+
+As doing this, the import statements should be handled carefully to ensure the parent component (`Home`) imports the mock component:
+
+```javascript
+describe("Home", () => {
+  it("shows empty cart on load", async () => {
+    //...
+    const { default: Home } = await import("@/app/page");
+    render(<Home />);
+    //...
+  });
+});
 ```
 
 ### Mocking user modules
@@ -211,6 +260,12 @@ Vercel generates a preview of the last commited page that allows me to test the 
 ### Testing
 
 - [Jest - Manual Mocks](https://jestjs.io/docs/manual-mocks)
+
+### Testing async RSC
+
+- [Running Tests with RTL and Vitest on Async and Internationalized React Server Components in Next.js App Router](https://aurorascharff.no/posts/running-tests-with-rtl-and-vitest-on-internationalized-react-server-components-in-nextjs-app-router/)
+- [React Testing Library issue - Support for React Server Components #1209](https://github.com/testing-library/react-testing-library/issues/1209)
+- [sroebert/renderServerComponent.ts - A (hacky) way to render server components for React testing library.](https://gist.github.com/sroebert/a04ca6e0232a4a60bc50d7f164f101f6)
 
 ### Server Side Rendering
 

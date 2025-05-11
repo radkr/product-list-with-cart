@@ -1,37 +1,41 @@
 import Image from "next/image";
 
 import styles from "./product-item.module.css";
+import AddToCart from "../add-to-cart/add-to-cart";
 
 export default function ProductItem({ product }) {
-  const imageSrc = `/images/${product.image.mobile}`;
-  const imageAlt = `Photo about ${product.name}`;
-  const imageWidth = 654;
-  const imageHeight = 424;
+  const productExcerpt = {
+    id: product.id,
+    name: product.name,
+    price: product.price,
+  };
 
   return (
     <li className={styles.card}>
-      <picture>
-        <source
-          media="(max-width: 529px)"
-          srcSet={`${process.env.VERCEL_BLOB_URI}/images/${product.image.mobile}`}
-        />
-        <source
-          media="(max-width: 1252px)"
-          srcSet={`${process.env.VERCEL_BLOB_URI}/images/${product.image.tablet}`}
-        />
-        <source
-          media="(min-width: 1253px)"
-          srcSet={`${process.env.VERCEL_BLOB_URI}/images/${product.image.desktop}`}
-        />
-        <img
-          src={`${process.env.VERCEL_BLOB_URI}/images/${product.image.desktop}`}
-          alt={`Photo about ${product.name}`}
-          className={styles.photo}
-        />
-      </picture>
-      <h2 className={styles.category}>{product.category}</h2>
-      <p className={styles.name}>{product.name}</p>
-      <p className={styles.price}>{`$${product.price}`}</p>
+      <AddToCart product={productExcerpt}>
+        <picture>
+          <source
+            media="(max-width: 529px)"
+            srcSet={`${process.env.VERCEL_BLOB_URI}/images/${product.image.mobile}`}
+          />
+          <source
+            media="(max-width: 1252px)"
+            srcSet={`${process.env.VERCEL_BLOB_URI}/images/${product.image.tablet}`}
+          />
+          <source
+            media="(min-width: 1253px)"
+            srcSet={`${process.env.VERCEL_BLOB_URI}/images/${product.image.desktop}`}
+          />
+          <img
+            src={`${process.env.VERCEL_BLOB_URI}/images/${product.image.desktop}`}
+            alt={`Photo about ${product.name}`}
+            className={styles.photo}
+          />
+        </picture>
+      </AddToCart>
+      <h2 className="text-preset-4 text-rose-500">{product.category}</h2>
+      <p className="text-preset-3 text-rose-900">{product.name}</p>
+      <p className="text-preset-3 text-red">{`$${product.price}`}</p>
     </li>
   );
 }

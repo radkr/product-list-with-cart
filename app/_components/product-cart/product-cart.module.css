@@ -8,12 +8,6 @@
 }
 
 .quantity {
-  font-family: var(--font-red-hat-sans);
-  font-size: var(--text-font-size-2);
-  font-weight: var(--text-font-weight-2);
-  line-height: var(--text-line-height-2);
-  letter-spacing: var(--text-letter-spacing-2);
-  color: var(--color-red);
   align-self: start;
 }
 
@@ -24,11 +18,34 @@
 }
 
 .info {
-  font-family: var(--font-red-hat-sans);
-  font-size: var(--text-font-size-4-bold);
-  font-weight: var(--text-font-weight-4-bold);
-  line-height: var(--text-line-height-4-bold);
-  letter-spacing: var(--text-letter-spacing-4-bold);
-  color: var(--color-rose-500);
   align-self: center;
+}
+
+.items {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-200);
+}
+
+.rule {
+  border: none;
+  height: 1px;
+  background-color: var(--color-rose-100);
+}
+
+.total {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.deliveryInfo {
+  display: flex;
+  flex-direction: row;
+  padding: var(--space-200);
+  background-color: var(--color-rose-50);
+  align-items: center;
+  justify-content: space-evenly;
 }

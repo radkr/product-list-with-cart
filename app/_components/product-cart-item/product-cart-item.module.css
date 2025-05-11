@@ -1,0 +1,25 @@
+.item {
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--space-100);
+}
+
+.pricing {
+  display: flex;
+  flex-direction: row;
+  column-gap: var(--space-100);
+}
+
+.quantity {
+  width: 1.3125rem;
+}
+
+.rule {
+  border: none;
+  height: 1px;
+  margin-top: var(--space-200);
+  background-color: var(--color-rose-100);
+}

@@ -1,9 +1,4 @@
 .title {
-  font-family: var(--font-red-hat-sans);
-  font-size: var(--text-font-size-1);
-  font-weight: var(--text-font-weight-1);
-  line-height: var(--text-line-height-1);
-  letter-spacing: var(--text-letter-spacing-1);
   margin-bottom: var(--space-400);
 }
 
