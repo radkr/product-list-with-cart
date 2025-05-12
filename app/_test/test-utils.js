@@ -40,7 +40,18 @@ export async function addToCart(productName) {
       selector: "button",
     }
   );
+  screen.debug(addToCart);
   await userEvent.click(addToCart);
+}
+
+export async function removeAllFromCart(productName) {
+  const removeFromCart = screen.getByLabelText(
+    new RegExp(`Remove all ${productName}`, "i"),
+    {
+      selector: "button",
+    }
+  );
+  await userEvent.click(removeFromCart);
 }
 
 export async function removeFromCart(productName) {
@@ -53,9 +64,19 @@ export async function removeFromCart(productName) {
   await userEvent.click(removeFromCart);
 }
 
-export function getCartQuantity(quantity) {
+export function getCartQuantity() {
   const heading = screen.getByText(/\((\d+)\)/);
   const match = heading.textContent.match(/\((\d+)\)/);
+
+  const number = match ? parseInt(match[1], 10) : null;
+  return number;
+}
+
+export function getProductQuantity(productName) {
+  const quantityText = screen.getByLabelText(
+    new RegExp(`quantity of ${productName}`, "i")
+  );
+  const match = quantityText.textContent.match(/(\d+)/);
 
   const number = match ? parseInt(match[1], 10) : null;
   return number;

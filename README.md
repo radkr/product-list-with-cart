@@ -20,6 +20,7 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
     - [Iteration 6](#iteration-6)
     - [Iteration 7](#iteration-7)
     - [Iteration 8](#iteration-8)
+    - [Iteration 9](#iteration-9)
   - [What I learned](#what-i-learned)
     - [Next.js Server Component rendering](#nextjs-server-component-rendering)
     - [MongoDB connection](#mongodb-connection)
@@ -29,6 +30,7 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
     - [Async react component integration testing](#async-react-component-integration-testing)
     - [Mocking user modules](#mocking-user-modules)
     - [Vercel deployment](#vercel-deployment)
+    - [VS Code test debug](#vs-code-test-debug)
   - [Useful resources](#useful-resources)
 
 # Overview
@@ -92,11 +94,15 @@ See the empty cart.
 
 ### Iteration 7
 
-Add product to the cart.
+Add the product to the cart.
 
 ### Iteration 8
 
-Remove product from the cart.
+Remove the product from the cart.
+
+### Iteration 9
+
+Add or remove product instances to or from the cart.
 
 ## What I learned
 
@@ -251,6 +257,10 @@ Product.find.mockResolvedValue(products);
 ### Vercel deployment
 
 Vercel generates a preview of the last commited page that allows me to test the application in the host environment before releasing it (merging it into the main branch).
+
+### VS Code test debug
+
+I achieved to set up a configuration in VS Code for debugging react tests. I found out that so I can set breakpoints virtually on any line of the test case codes or of the react components even in the JSX part of the code.
 
 ## Useful resources
 

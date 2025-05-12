@@ -7,6 +7,7 @@ export const CartContext = createContext({
   total: 0,
   getQuantity: () => {},
   add: () => {},
+  removeAll: () => {},
   remove: () => {},
 });
 
@@ -30,7 +31,7 @@ export default function CartProvider({ children }) {
       const current = previous.map((item) => {
         if (item.product.id == product.id) {
           isInCart = true;
-          return { ...item, quantity: item.quantity++ };
+          return { ...item, quantity: item.quantity + 1 };
         } else {
           return { ...item };
         }
@@ -42,7 +43,7 @@ export default function CartProvider({ children }) {
     });
   }
 
-  function remove(product) {
+  function removeAll(product) {
     setProducts((previous) => {
       const current = previous.filter((item) => {
         return !(item.product.id === product.id);
@@ -51,11 +52,35 @@ export default function CartProvider({ children }) {
     });
   }
 
+  function remove(product) {
+    setProducts((previous) => {
+      const productFound = previous.find((item) => {
+        return item.product.id == product.id;
+      });
+      if (!productFound) {
+        return previous;
+      }
+      if (productFound.quantity == 1) {
+        return previous.filter((item) => {
+          return !(item.product.id === product.id);
+        });
+      }
+      return previous.map((item) => {
+        if (item.product.id == product.id) {
+          return { ...item, quantity: item.quantity - 1 };
+        } else {
+          return { ...item };
+        }
+      });
+    });
+  }
+
   const cartValue = {
     products: products,
     total: total,
     getQuantity: getQuantity,
     add: add,
+    removeAll: removeAll,
     remove: remove,
   };
 

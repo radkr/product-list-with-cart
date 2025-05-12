@@ -33,10 +33,10 @@ export default function ProductCartItem({ item, last }) {
           </div>
         </div>
         <button
-          className={styles.remove}
-          aria-label={`Remove ${item.product.name} from the cart`}
+          className={styles.removeAll}
+          aria-label={`Remove all ${item.product.name}s from the cart`}
           onClick={() => {
-            cart.remove(item.product);
+            cart.removeAll(item.product);
           }}
         >
           <Image src={removeIcon} alt="" aria-hidden />
