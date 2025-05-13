@@ -2,6 +2,30 @@
 
 This is a solution to the [Product list with cart challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-list-with-cart-5MmqLVAp_d). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
+With my solution I went a bit further and created a
+
+- Next.js site deployed on Vercel that is
+- dinamically adjusts to the browser's default font size and is
+- reponsive but still
+- stick to the Frontend Mentor's design when the default font size is 16px.
+
+I improved the user experience by adding
+
+- animation to the modal and the add to cart button plus
+- smooth transitions upon hover.
+
+I want to make this project a bit more closer to a real world scenario by
+
+- fetching the product list from a database and the product pictures from a blob store so products can be added or removed without needing to rebuild the application while
+- preserving server-side rendering as a step towards SEO so the shop's products can be find easier while browsing the internet so
+- my application connects to MongoDb Atlas and Vercel Blob Store by an async react server component
+- as well as applies incremental statig regeneration on the page with invalidation timeout of 60s.
+
+While implementing unit and integration tests, I successfully tackled several challenges
+
+- particularly in handling asynchronous server components in both test types, and
+- in effectively mocking the React Context API.
+
 # Table of contents
 
 - [Overview](#overview)
@@ -39,6 +63,26 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
 
 ## Screenshot
 
+**Desktop with products selected:**
+
+![Screenshot about desktop with products selected](./screenshots/desktop-selected.png)
+
+**Desktop with order confirmation:**
+
+![Screenshot about desktop with order confirmation](./screenshots/desktop-order.png)
+
+**Mobile top part:**
+
+![Screenshot about mobile top part](./screenshots/mobile-top.png)
+
+**Mobile with products selected:**
+
+![Screenshot about mobile with products selected](./screenshots/mobile-selected.png)
+
+**Tablet with empty cart:**
+
+![Screenshot about mobile with order confirmation](./screenshots/tablet-empty.png)
+
 ## Links
 
 - Solution URL: [TODO - On Frontend Mentor](#)
@@ -51,7 +95,7 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
 ## Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
+- CSS custom properties, transitions and animations, media queries (min-width, hover, pointer)
 - Mobile-first workflow
 - Responsive design
 - Next.js + React.js (async react server component)
@@ -59,13 +103,9 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
 - NoSQl with ODM (MongoDB Atlas + Mongoose)
 - Blob Store (Vercel Blob)
 
-## Improved with
-
-- TODO - Autoprefixer to increase browser coverage
-
 ## Tested with
 
-- TODO - WAVE Web Accessibility Evaluation Tool
+- WAVE Web Accessibility Evaluation Tool
 - Jest + React Testing Library + User Event Testing Library
 
 ## Iterations
