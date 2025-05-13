@@ -53,12 +53,34 @@
 
 .changeQuantity {
   appearance: none;
-  width: 1.25rem;
-  height: 1.25rem;
-  border: 1px solid white;
-  border-radius: 0.625rem;
+  border: none;
   background-color: transparent;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: white;
+  display: block;
+}
+
+.filledIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: white;
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .changeQuantity:hover .icon {
+    display: none;
+  }
+
+  .changeQuantity:hover .filledIcon {
+    display: block;
+  }
 }

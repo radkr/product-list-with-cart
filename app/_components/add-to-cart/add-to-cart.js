@@ -5,8 +5,10 @@ import { use } from "react";
 
 import styles from "./add-to-cart.module.css";
 import carIcon from "@/public/images/icon-add-to-cart.svg";
-import incIcon from "@/public/images/icon-increment-quantity.svg";
-import decIcon from "@/public/images/icon-decrement-quantity.svg";
+import incIcon from "@/public/images/carbon--add-alt.svg";
+import incFilledIcon from "@/public/images/carbon--add-filled.svg";
+import decIcon from "@/public/images/carbon--subtract-alt.svg";
+import decFilledIcon from "@/public/images/carbon--subtract-filled.svg";
 import { CartContext } from "@/app/_utils/cart-provider";
 
 export default function AddToCart({ product, children }) {
@@ -42,11 +44,12 @@ export default function AddToCart({ product, children }) {
           cart.remove({ ...product });
         }}
       >
+        <Image src={decIcon} className={styles.icon} alt="" aria-hidden />
         <Image
-          src={decIcon}
+          src={decFilledIcon}
+          className={styles.filledIcon}
           alt=""
           aria-hidden
-          data-testid="decrement-quantity-icon"
         />
       </button>
       <p>{quantity}</p>
@@ -57,11 +60,12 @@ export default function AddToCart({ product, children }) {
           cart.add({ ...product });
         }}
       >
+        <Image src={incIcon} className={styles.icon} alt="" aria-hidden />
         <Image
-          src={incIcon}
+          src={incFilledIcon}
+          className={styles.filledIcon}
           alt=""
           aria-hidden
-          data-testid="increment-quantity-icon"
         />
       </button>
     </div>
