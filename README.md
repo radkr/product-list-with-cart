@@ -22,6 +22,7 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
     - [Iteration 8](#iteration-8)
     - [Iteration 9](#iteration-9)
     - [Iteration 10](#iteration-10)
+    - [Iteration 11](#iteration-11)
   - [What I learned](#what-i-learned)
     - [Next.js Server Component rendering](#nextjs-server-component-rendering)
     - [MongoDB connection](#mongodb-connection)
@@ -108,6 +109,10 @@ Add or remove product instances to or from the cart.
 ### Iteration 10
 
 Confim the order and start a new one.
+
+### Iteration 11
+
+See smooth transitions (add to cart button, hovers, modal showing up) on the page.
 
 ## What I learned
 

@@ -11,6 +11,7 @@
   width: 1.25rem;
   height: 1.25rem;
   color: var(--color-rose-400);
+  transition: all 0.3s ease-out;
 }
 
 .icon:active {

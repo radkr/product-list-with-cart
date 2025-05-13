@@ -43,6 +43,16 @@ export async function addToCart(productName) {
   await userEvent.click(addToCart);
 }
 
+export async function addOneToCart(productName) {
+  const addToCart = screen.getByLabelText(
+    new RegExp(`Add one ${productName}`, "i"),
+    {
+      selector: "button",
+    }
+  );
+  await userEvent.click(addToCart);
+}
+
 export async function removeAllFromCart(productName) {
   const removeFromCart = screen.getByLabelText(
     new RegExp(`Remove all ${productName}`, "i"),
@@ -53,9 +63,9 @@ export async function removeAllFromCart(productName) {
   await userEvent.click(removeFromCart);
 }
 
-export async function removeFromCart(productName) {
+export async function removeOneFromCart(productName) {
   const removeFromCart = screen.getByLabelText(
-    new RegExp(`Remove ${productName}`, "i"),
+    new RegExp(`Remove one ${productName}`, "i"),
     {
       selector: "button",
     }

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { use } from "react";
+import { use, useState } from "react";
 
 import styles from "./add-to-cart.module.css";
 import carIcon from "@/public/images/icon-add-to-cart.svg";
@@ -10,20 +10,21 @@ import incFilledIcon from "@/public/images/carbon--add-filled.svg";
 import decIcon from "@/public/images/carbon--subtract-alt.svg";
 import decFilledIcon from "@/public/images/carbon--subtract-filled.svg";
 import { CartContext } from "@/app/_utils/cart-provider";
+import AdjustButton from "@/app/_components/adjust-button/adjust-button";
 
 export default function AddToCart({ product, children }) {
+  const [clicked, setClicked] = useState(false);
   const cart = use(CartContext);
   const quantity = cart.getQuantity(product);
   const isInCart = 0 < quantity;
 
-  function addToCart() {
-    cart.add({ ...product });
-  }
-
-  const addToCartButton = isInCart || (
+  const addToCartButton = (
     <button
-      className={`${styles.control} ${styles.add} text-preset-4-bold text-rose-900`}
+      className={`${styles.control} ${styles.add} ${
+        clicked ? (!isInCart ? styles.show : styles.hide) : ""
+      } text-preset-4-bold text-rose-900`}
       onClick={() => {
+        setClicked(true);
         cart.add({ ...product });
       }}
       aria-label={`Add ${product.name} to the cart`}
@@ -33,41 +34,29 @@ export default function AddToCart({ product, children }) {
     </button>
   );
 
-  const changeQuantityPanel = isInCart && (
+  const changeQuantityPanel = (
     <div
-      className={`${styles.control} ${styles.controlActive} text-preset-4-bold text-rose-900`}
+      className={`${styles.control} ${styles.addAndRemove} ${
+        clicked ? (isInCart ? styles.show : styles.hide) : ""
+      } text-preset-4-bold text-rose-900`}
     >
-      <button
-        className={styles.changeQuantity}
-        aria-label={`Remove ${product.name} from the cart`}
+      <AdjustButton
+        icon={decIcon}
+        filledIcon={decFilledIcon}
+        aria-label={`Remove one ${product.name} from the cart`}
         onClick={() => {
           cart.remove({ ...product });
         }}
-      >
-        <Image src={decIcon} className={styles.icon} alt="" aria-hidden />
-        <Image
-          src={decFilledIcon}
-          className={styles.filledIcon}
-          alt=""
-          aria-hidden
-        />
-      </button>
+      ></AdjustButton>
       <p>{quantity}</p>
-      <button
-        className={styles.changeQuantity}
-        aria-label={`Add ${product.name} to the cart`}
+      <AdjustButton
+        icon={incIcon}
+        filledIcon={incFilledIcon}
+        aria-label={`Add one ${product.name} to the cart`}
         onClick={() => {
           cart.add({ ...product });
         }}
-      >
-        <Image src={incIcon} className={styles.icon} alt="" aria-hidden />
-        <Image
-          src={incFilledIcon}
-          className={styles.filledIcon}
-          alt=""
-          aria-hidden
-        />
-      </button>
+      ></AdjustButton>
     </div>
   );
 
@@ -76,7 +65,8 @@ export default function AddToCart({ product, children }) {
       <div className={`${styles.photo} ${isInCart ? styles.photoActive : ""}`}>
         {children}
       </div>
-      {isInCart ? changeQuantityPanel : addToCartButton}
+      {changeQuantityPanel}
+      {addToCartButton}
     </div>
   );
 }

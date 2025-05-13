@@ -8,7 +8,7 @@ import {
   getCartQuantity,
   products,
   removeAllFromCart,
-  removeFromCart,
+  removeOneFromCart,
   getProductQuantity,
   addOneToCart,
 } from "@/app/_test/test-utils";
@@ -135,7 +135,7 @@ describe("Home, multiple product instance", () => {
     render(<Home />);
     //Act
     await addToCart(products[0].name);
-    await addToCart(products[0].name);
+    await addOneToCart(products[0].name);
     const quantity = getCartQuantity();
     //Assert
     expect(quantity).toBe(1);
@@ -147,7 +147,7 @@ describe("Home, multiple product instance", () => {
     render(<Home />);
     //Act
     await addToCart(products[0].name);
-    await addToCart(products[0].name);
+    await addOneToCart(products[0].name);
     const quantity = getProductQuantity(products[0].name);
     //Assert
     expect(quantity).toBe(2);
@@ -159,8 +159,8 @@ describe("Home, multiple product instance", () => {
     render(<Home />);
     //Act
     await addToCart(products[0].name);
-    await addToCart(products[0].name);
-    await removeFromCart(products[0].name);
+    await addOneToCart(products[0].name);
+    await removeOneFromCart(products[0].name);
     const quantity = getProductQuantity(products[0].name);
     //Assert
     expect(quantity).toBe(1);
@@ -172,9 +172,9 @@ describe("Home, multiple product instance", () => {
     render(<Home />);
     //Act
     await addToCart(products[0].name);
-    await addToCart(products[0].name);
-    await removeFromCart(products[0].name);
-    await removeFromCart(products[0].name);
+    await addOneToCart(products[0].name);
+    await removeOneFromCart(products[0].name);
+    await removeOneFromCart(products[0].name);
     //Act
     const quantity = getCartQuantity();
     //Assert
@@ -187,7 +187,7 @@ describe("Home, multiple product instance", () => {
     render(<Home />);
     //Act
     await addToCart(products[0].name);
-    await addToCart(products[0].name);
+    await addOneToCart(products[0].name);
     const total = screen.getByLabelText("Order Total");
     //Assert
     expect(total).toHaveTextContent(`$${products[0].price * 2}`);
@@ -218,8 +218,9 @@ describe("Home - confirm order", () => {
       { quantity: 1, product: products[1].name },
     ];
     for (const item of items) {
-      for (let i = 0; i < item.quantity; i++) {
-        await addToCart(item.product);
+      await addToCart(item.product);
+      for (let i = 1; i < item.quantity; i++) {
+        await addOneToCart(item.product);
       }
     }
     const confirmOrderButton = screen.getByText(/confirm order/i);

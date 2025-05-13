@@ -18,32 +18,28 @@
 }
 
 .modal[open] {
-  animation: fadeInAnimation 0.1s ease-out forwards;
+  animation: slideInAnimationMobile 0.3s ease-out forwards;
 }
 
-@keyframes fadeInAnimation {
+@keyframes slideInAnimationMobile {
   from {
-    opacity: 0;
-    /*transform: translate(-50%, -50%) scale(0.7);*/
+    transform: translateY(100%);
   }
 
   to {
-    opacity: 1;
-    /*transform: translate(-50%, -50%) scale(1);*/
+    transform: translateY(0);
   }
 }
 
 @keyframes fadeOutAnimation {
   from {
     opacity: 1;
-    /*transform: translate(-50%, -50%) scale(1);*/
     display: block;
     visibility: visible;
   }
 
   to {
     opacity: 0;
-    /*transform: translate(-50%, -50%) scale(0.7);*/
     display: none;
     visibility: hidden;
   }
@@ -56,10 +52,23 @@
   .modal {
     width: calc(100vw - 2 * var(--space-500));
     max-width: 685px;
-    top: 50%;
-    bottom: auto;
+    bottom: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 50%);
     border-radius: var(--space-150);
+  }
+
+  .modal[open] {
+    animation: slideInAnimation 0.3s ease-out forwards;
+  }
+}
+
+@keyframes slideInAnimation {
+  from {
+    transform: translate(-50%, 100%);
+  }
+
+  to {
+    transform: translate(-50%, 50%);
   }
 }
