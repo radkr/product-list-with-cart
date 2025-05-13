@@ -8,6 +8,7 @@ import emptyCartImage from "@/public/images/illustration-empty-cart.svg";
 import neutralImage from "@/public/images/icon-carbon-neutral.svg";
 import { CartContext } from "@/app/_utils/cart-provider";
 import ProductCartItem from "@/app/_components/product-cart-item/product-cart-item";
+import ConfirmOrder from "@/app/_components/confirm-order/confirm-order";
 
 export default function ProductCart() {
   const cart = use(CartContext);
@@ -57,6 +58,7 @@ export default function ProductCart() {
           delivery.
         </p>
       </div>
+      <ConfirmOrder />
     </>
   );
 

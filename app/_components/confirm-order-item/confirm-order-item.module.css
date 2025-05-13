@@ -1,0 +1,42 @@
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-content: center;
+}
+
+.photo {
+  width: 3rem;
+  height: 3rem;
+  margin-right: var(--space-200);
+  border-radius: var(--space-50);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--space-100);
+}
+
+.pricing {
+  display: flex;
+  flex-direction: row;
+  column-gap: var(--space-100);
+}
+
+.quantity {
+  width: 1.3125rem;
+}
+
+.rule {
+  border: none;
+  height: 1px;
+  background-color: var(--color-rose-100);
+}

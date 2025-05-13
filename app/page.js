@@ -7,15 +7,16 @@ export const revalidate = 60;
 
 export default function Home() {
   return (
-    <div className={styles.shop}>
-      <CartProvider>
+    <CartProvider>
+      <div id="modal-root" />
+      <div className={styles.shop}>
         <main className={styles.products}>
           <ProductList />
         </main>
         <aside className={styles.cart}>
           <ProductCart />
         </aside>
-      </CartProvider>
-    </div>
+      </div>
+    </CartProvider>
   );
 }

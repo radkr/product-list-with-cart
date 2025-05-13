@@ -40,7 +40,6 @@ export async function addToCart(productName) {
       selector: "button",
     }
   );
-  screen.debug(addToCart);
   await userEvent.click(addToCart);
 }
 
@@ -72,8 +71,8 @@ export function getCartQuantity() {
   return number;
 }
 
-export function getProductQuantity(productName) {
-  const quantityText = screen.getByLabelText(
+export function getProductQuantity(productName, element = screen) {
+  const quantityText = element.getByLabelText(
     new RegExp(`quantity of ${productName}`, "i")
   );
   const match = quantityText.textContent.match(/(\d+)/);

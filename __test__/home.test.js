@@ -29,6 +29,10 @@ beforeAll(async () => {
       return SyncProductList;
     },
   }));
+
+  HTMLDialogElement.prototype.show = jest.fn();
+  HTMLDialogElement.prototype.showModal = jest.fn();
+  HTMLDialogElement.prototype.close = jest.fn();
 });
 
 afterAll(() => {
@@ -187,5 +191,70 @@ describe("Home, multiple product instance", () => {
     const total = screen.getByLabelText("Order Total");
     //Assert
     expect(total).toHaveTextContent(`$${products[0].price * 2}`);
+  });
+});
+
+describe("Home - confirm order", () => {
+  it("opens the confirm modal", async () => {
+    //Arrange
+    const { default: Home } = await import("@/app/page");
+    render(<Home />);
+    //Act
+    await addToCart(products[0].name);
+    const confirmOrderButton = screen.getByText(/confirm order/i);
+    await userEvent.click(confirmOrderButton);
+    const confirmOrderModal = screen.getByTestId("confirm-order-modal");
+    //Assert
+    expect(confirmOrderModal).toBeInTheDocument();
+  });
+
+  it("shows the proper list of products in the confirm modal", async () => {
+    //Arrange
+    const { default: Home } = await import("@/app/page");
+    render(<Home />);
+    //Act
+    const items = [
+      { quantity: 2, product: products[0].name },
+      { quantity: 1, product: products[1].name },
+    ];
+    for (const item of items) {
+      for (let i = 0; i < item.quantity; i++) {
+        await addToCart(item.product);
+      }
+    }
+    const confirmOrderButton = screen.getByText(/confirm order/i);
+    await userEvent.click(confirmOrderButton);
+    //Assert
+    const confirmOrderModal = screen.getByTestId("confirm-order-modal");
+    for (const item of items) {
+      for (let i = 0; i < item.quantity; i++) {
+        const itemElement = within(confirmOrderModal).getByText(item.product);
+        expect(itemElement).toBeInTheDocument();
+        const quantity = getProductQuantity(
+          item.product,
+          within(confirmOrderModal)
+        );
+        expect(quantity).toBe(item.quantity);
+      }
+    }
+  });
+
+  it("empties the cart", async () => {
+    //Arrange
+    const { default: Home } = await import("@/app/page");
+    render(<Home />);
+    //Act
+    await addToCart(products[0].name);
+    const confirmOrderButton = screen.getByText(/confirm order/i);
+    await userEvent.click(confirmOrderButton);
+    const confirmOrderModal = screen.getByTestId("confirm-order-modal");
+    const startNewOrder =
+      within(confirmOrderModal).getByText(/start new order/i);
+    await userEvent.click(startNewOrder);
+    //Assert
+    const confirmOrderModalClosed = screen.queryByTestId("confirm-order-modal");
+    expect(confirmOrderModalClosed).not.toBeInTheDocument();
+    const quantity = getCartQuantity();
+    expect(quantity).toBe(0);
   });
 });

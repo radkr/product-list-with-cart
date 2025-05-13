@@ -1,0 +1,70 @@
+.modal {
+  font-size: 1rem;
+  width: 100vw;
+  max-width: 685px;
+  max-height: calc(100vh - 6rem);
+  position: fixed;
+  top: auto;
+  bottom: 0px;
+  left: 0px;
+  border: none;
+  background: none;
+  outline: none;
+  max-width: none;
+  max-height: none;
+  border-radius: var(--space-150) var(--space-150) 0 0;
+  overflow: hidden;
+  animation: fadeOutAnimation 0.1s ease-out forwards;
+}
+
+.modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal[open] {
+  animation: fadeInAnimation 0.1s ease-out forwards;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    /*transform: translate(-50%, -50%) scale(0.7);*/
+  }
+
+  to {
+    opacity: 1;
+    /*transform: translate(-50%, -50%) scale(1);*/
+  }
+}
+
+@keyframes fadeOutAnimation {
+  from {
+    opacity: 1;
+    /*transform: translate(-50%, -50%) scale(1);*/
+    display: block;
+    visibility: visible;
+  }
+
+  to {
+    opacity: 0;
+    /*transform: translate(-50%, -50%) scale(0.7);*/
+    display: none;
+    visibility: hidden;
+  }
+}
+
+/* Tablet 2 column layout: */
+/* 2 * tablet-padding + 2 * min-width-card + 1 * column-gap */
+/* 2 * 40px + 2 * 213px + 1 * 24px = 530px*/
+@media (min-width: 33.125rem) {
+  .modal {
+    width: calc(100vw - 2 * var(--space-500));
+    max-width: 685px;
+    top: 50%;
+    bottom: auto;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: var(--space-150);
+  }
+}

@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import styles from "./product-item.module.css";
 import AddToCart from "../add-to-cart/add-to-cart";
 
@@ -8,6 +6,9 @@ export default function ProductItem({ product }) {
     id: product.id,
     name: product.name,
     price: product.price,
+    image: {
+      thumbnail: product.image.thumbnail,
+    },
   };
 
   return (
@@ -16,18 +17,18 @@ export default function ProductItem({ product }) {
         <picture>
           <source
             media="(max-width: 529px)"
-            srcSet={`${process.env.VERCEL_BLOB_URI}/images/${product.image.mobile}`}
+            srcSet={`${process.env.NEXT_PUBLIC_VERCEL_BLOB_URI}/images/${product.image.mobile}`}
           />
           <source
             media="(max-width: 1252px)"
-            srcSet={`${process.env.VERCEL_BLOB_URI}/images/${product.image.tablet}`}
+            srcSet={`${process.env.NEXT_PUBLIC_VERCEL_BLOB_URI}/images/${product.image.tablet}`}
           />
           <source
             media="(min-width: 1253px)"
-            srcSet={`${process.env.VERCEL_BLOB_URI}/images/${product.image.desktop}`}
+            srcSet={`${process.env.NEXT_PUBLIC_VERCEL_BLOB_URI}/images/${product.image.desktop}`}
           />
           <img
-            src={`${process.env.VERCEL_BLOB_URI}/images/${product.image.desktop}`}
+            src={`${process.env.NEXT_PUBLIC_VERCEL_BLOB_URI}/images/${product.image.desktop}`}
             alt={`Photo about ${product.name}`}
             className={styles.photo}
           />

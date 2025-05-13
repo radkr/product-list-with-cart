@@ -1,0 +1,50 @@
+.modal {
+  overflow: scroll;
+  padding: var(--space-500) var(--space-300) var(--space-300) var(--space-300);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--space-400);
+}
+
+.cart {
+  padding: var(--space-300);
+  background-color: var(--color-rose-50);
+  border-radius: var(--space-100);
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--space-300);
+}
+
+.products {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--space-200);
+}
+
+.icon {
+  margin-bottom: var(--space-300);
+}
+
+.rule {
+  border: none;
+  height: 1px;
+  background-color: var(--color-rose-100);
+}
+
+.total {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Tablet 2 column layout: */
+/* 2 * tablet-padding + 2 * min-width-card + 1 * column-gap */
+/* 2 * 40px + 2 * 213px + 1 * 24px = 530px*/
+@media (min-width: 33.125rem) {
+  .modal {
+    padding: var(--space-500);
+  }
+}

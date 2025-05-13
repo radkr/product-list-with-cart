@@ -1,0 +1,23 @@
+.primary {
+  --height: 3.3125rem;
+
+  appearance: none;
+  border: none;
+  height: var(--height);
+  min-height: var(--height);
+  border-radius: calc(var(--height) / 2);
+  padding: 0 calc(var(--height) / 2);
+  background-color: var(--color-red);
+}
+
+.primary:active {
+  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+    var(--color-red);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .primary:hover {
+    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+      var(--color-red);
+  }
+}

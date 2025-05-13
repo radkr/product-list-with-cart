@@ -100,8 +100,13 @@
 .text-rose-900 {
   color: var(--color-rose-900);
 }
+
 .text-rose-500 {
   color: var(--color-rose-500);
+}
+
+.text-white {
+  color: white;
 }
 
 * {
