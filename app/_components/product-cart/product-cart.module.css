@@ -46,6 +46,7 @@
   flex-direction: row;
   padding: var(--space-200);
   background-color: var(--color-rose-50);
+  column-gap: var(--space-100);
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 }
