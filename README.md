@@ -19,7 +19,7 @@ I want to make this project a bit more closer to a real world scenario by
 - fetching the product list from a database and the product pictures from a blob store so products can be added or removed without needing to rebuild the application while
 - preserving server-side rendering as a step towards SEO so the shop's products can be find easier while browsing the internet so
 - my application connects to MongoDb Atlas and Vercel Blob Store by an async react server component
-- as well as applies incremental statig regeneration on the page with invalidation timeout of 60s.
+- as well as applies incremental static regeneration on the page with invalidation timeout of 60s.
 
 While implementing unit and integration tests, I successfully tackled several challenges
 
@@ -85,7 +85,7 @@ While implementing unit and integration tests, I successfully tackled several ch
 
 ## Links
 
-- Solution URL: [TODO - On Frontend Mentor](#)
+- Solution URL: [On Frontend Mentor](https://www.frontendmentor.io/solutions/responsive-shop-app-with-database-and-animations-joejUN4Jf6)
 - Live Site URL: [On Vercel](https://product-list-with-cart-ochre.vercel.app/)
   - Product list on MongoDB Atlas server
   - Product pictures on Vercel Store server

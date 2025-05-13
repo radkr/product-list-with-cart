@@ -35,7 +35,7 @@ describe(ProductItem, () => {
 
   it("should render the product price", () => {
     render(<ProductItem product={product} />);
-    const price = screen.getByText(`$${product.price}`);
+    const price = screen.getByText(`$${product.price.toFixed(2)}`);
     expect(price).toBeInTheDocument();
   });
 });

@@ -30,7 +30,7 @@ export default function AddToCart({ product, children }) {
       aria-label={`Add ${product.name} to the cart`}
     >
       <Image src={carIcon} alt="" aria-hidden data-testid="add-to-cart-icon" />
-      <p>Add to Cart</p>
+      <span>Add to Cart</span>
     </button>
   );
 
