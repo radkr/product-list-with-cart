@@ -24,11 +24,11 @@ export default function ProductCartItem({ item, last }) {
             <p
               className="text-preset-4 text-rose-500"
               aria-label={`The unit price of ${item.product.name}`}
-            >{`@ $${item.product.price}`}</p>
+            >{`@ $${item.product.price.toFixed(2)}`}</p>
             <p
               className="text-preset-4-bold text-rose-500"
               aria-label={`The total price of ${item.product.name}s`}
-            >{`$${item.quantity * item.product.price}`}</p>
+            >{`$${(item.quantity * item.product.price).toFixed(2)}`}</p>
           </div>
         </div>
         <RemoveButton

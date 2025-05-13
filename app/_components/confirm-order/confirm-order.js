@@ -56,7 +56,7 @@ export default function ConfirmOrder() {
               <p
                 className="text-preset-2 text-rose-900"
                 aria-labelledby="order-total"
-              >{`$${cart.total}`}</p>
+              >{`$${cart.total.toFixed(2)}`}</p>
             </div>
           </div>
           <PrimaryButton

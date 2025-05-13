@@ -26,14 +26,14 @@ export default function ConfirmOrderItem({ item, last }) {
               <p
                 className="text-preset-4 text-rose-500"
                 aria-label={`The unit price of ${item.product.name}`}
-              >{`@ $${item.product.price}`}</p>
+              >{`@ $${item.product.price.toFixed(2)}`}</p>
             </div>
           </div>
         </div>
         <p
           className="text-preset-3 text-rose-900"
           aria-label={`The total price of ${item.product.name}s`}
-        >{`$${item.quantity * item.product.price}`}</p>
+        >{`$${(item.quantity * item.product.price).toFixed(2)}`}</p>
       </li>
       {!last ? <hr className={styles.rule} /> : null}
     </>

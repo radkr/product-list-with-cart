@@ -15,16 +15,16 @@ export default function ProductCart() {
   const isEmpty = cart.products.length == 0;
 
   const emptyCart = isEmpty && (
-    <>
+    <div className={styles.emptyCart}>
       <Image
         src={emptyCartImage}
         alt="Empty cart"
-        className={styles.emptyCart}
+        className={styles.emptyCartImage}
       />
       <p className={`${styles.info} text-preset-4-bold text-rose-500`}>
         Your added items will appear here
       </p>
-    </>
+    </div>
   );
 
   const productList = isEmpty || (
@@ -46,7 +46,7 @@ export default function ProductCart() {
         <p
           className="text-preset-2 text-rose-900"
           aria-labelledby="order-total"
-        >{`$${cart.total}`}</p>
+        >{`$${cart.total.toFixed(2)}`}</p>
       </div>
       <div className={styles.deliveryInfo}>
         <Image src={neutralImage} alt="" aria-hidden />

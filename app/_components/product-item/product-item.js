@@ -36,7 +36,7 @@ export default function ProductItem({ product }) {
       </AddToCart>
       <h2 className="text-preset-4 text-rose-500">{product.category}</h2>
       <p className="text-preset-3 text-rose-900">{product.name}</p>
-      <p className="text-preset-3 text-red">{`$${product.price}`}</p>
+      <p className="text-preset-3 text-red">{`$${product.price.toFixed(2)}`}</p>
     </li>
   );
 }
