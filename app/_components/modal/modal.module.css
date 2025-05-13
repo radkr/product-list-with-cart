@@ -2,7 +2,6 @@
   font-size: 1rem;
   width: 100vw;
   max-width: 685px;
-  max-height: calc(100vh - 6rem);
   position: fixed;
   top: auto;
   bottom: 0px;
@@ -10,10 +9,7 @@
   border: none;
   background: none;
   outline: none;
-  max-width: none;
-  max-height: none;
   border-radius: var(--space-150) var(--space-150) 0 0;
-  overflow: hidden;
   animation: fadeOutAnimation 0.1s ease-out forwards;
 }
 
@@ -63,7 +59,6 @@
     top: 50%;
     bottom: auto;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     border-radius: var(--space-150);
   }

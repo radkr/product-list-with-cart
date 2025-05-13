@@ -1,5 +1,4 @@
 .modal {
-  overflow: scroll;
   padding: var(--space-500) var(--space-300) var(--space-300) var(--space-300);
   background-color: white;
   display: flex;
@@ -8,6 +7,8 @@
 }
 
 .cart {
+  overflow: auto;
+  max-height: calc(100vh - 6rem - 23.625rem);
   padding: var(--space-300);
   background-color: var(--color-rose-50);
   border-radius: var(--space-100);
