@@ -1,0 +1,3 @@
+setup:
+  - project: demo-project
+    config: dev
